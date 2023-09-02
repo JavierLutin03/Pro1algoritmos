@@ -1,0 +1,42 @@
+ostream>
+using namespace std;
+
+int main() {
+    string palabra = "Amanecer";  // para inicializar el juego se puede cambiar perfectamente aqui la palabra a divinar // 
+    int maxIntentos = 6;  // en maxintentos se puede permitir el numero de veces que el ususario puede adivianr la letra //
+    int intentos = 0;
+    string palabraAdivinada(palabra.length(), '_');
+
+    // En este apartado del proyecto se  inicia el ciclo que va a funcionar para poder cumplir con la tarea del juego del ahorcado //
+    while (intentos < maxIntentos && palabraAdivinada != palabra) {
+    	    // Mostrar la palabra adivinada actual y los intentos restantes que el usuario tiene // 
+        cout << "Palabra adivinada: " << palabraAdivinada << endl;
+        cout << "Intentos restantes: " << maxIntentos - intentos << endl;
+           // se solicita al jugador que ingrese una  letra //
+        char letra;
+        cout << "Ingresa una letra: ";
+        cin >> letra;
+          // se inicializa para verificar si la letra es cierta o no dentro de la palabra puesta para que el usuario pueda llegar a adivinar //
+        bool acierto = false;
+
+        for (int i = 0; i < palabra.length(); i++) {
+            if (palabra[i] == letra) {
+                palabraAdivinada[i] = letra;
+                acierto = true;
+            }
+        }
+    
+        if (!acierto) {
+            cout << "Incorrecto. La letra '" << letra << "' no está en la palabra." << endl;
+            intentos++; // en este apartado es muy importante ya que se puede observar que al ingrsar una palabra incorrecta el programa resta los intentos //
+        }
+    }
+        // en este ciclo indica al usuario si gano el juego o lo perdio //
+    if (palabraAdivinada == palabra) {
+        cout << "Felicidades palabra correcta: " << palabra << endl;
+    } else {
+        cout << "No ha sido posible encontrar la palabra : " << palabra << endl;
+    }
+
+    return 0;
+}
