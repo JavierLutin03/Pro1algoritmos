@@ -2,7 +2,7 @@ ostream>
 using namespace std;
 
 int main() {
-    string palabra = "Amanecer";  // para inicializar el juego se puede cambiar perfectamente aqui la palabra a divinar // 
+    string palabra = "amanecer";  // para inicializar el juego se puede cambiar perfectamente aqui la palabra a divinar // 
     int maxIntentos = 6;  // en maxintentos se puede permitir el numero de veces que el ususario puede adivianr la letra //
     int intentos = 0;
     string palabraAdivinada(palabra.length(), '_');
