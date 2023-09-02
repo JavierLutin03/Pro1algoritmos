@@ -2,30 +2,47 @@
 using namespace std;
 
 int main() {
+    // Establecer el límite superior para los valores de lados e hipotenusa // 
     int limite = 500;
 
+    // Imprimir un anuncion del comienzo del programa //
     cout << "Triples de Pitágoras menores o iguales a 500:" << endl;
+
+    // Inicializar la variable para la hipotenusa en 1 //
     int hipotenusa = 1;
+
+    // Iniciar un bucle mientras la hipotenusa esté dentro del límite//
     while (hipotenusa <= limite) {
+        // Inicializar la variable para el primer lado del triángulo en 1 // 
         int lado1 = 1;
+
+        // Iniciar un bucle mientras el primer lado este dentro del valor de la hipotenusa actual // 
         while (lado1 <= hipotenusa) {
+            // Inicializar la variable para el segundo lado del triángulo igual que el primer lado// 
             int lado2 = lado1;
+
+            // Iniciar un bucle mientras el segundo lado esté dentro del valor de la hipotenusa actual // 
             while (lado2 <= hipotenusa) {
+                // Verificar si los valores actuales de lado1, lado2 e hipotenusa satisfacen la condición del teorema de Pitágoras // 
                 if (lado1 * lado1 + lado2 * lado2 == hipotenusa * hipotenusa) {
+                    //  en esta condicion se necesita si cumple la condición, imprimir el triple de Pitágoras encontrado // 
                     cout << lado1 << ", " << lado2 << ", " << hipotenusa << endl;
                 }
+
+                // este proceso  incrementa el valor del segundo lado // 
                 lado2++;
             }
+
+            // en este proceso se incrementa el valor del lado 1 // 
             lado1++;
         }
+
+        //  por esta parte se  incrementar el valor de la hipotenusa // 
         hipotenusa++;
     }
 
     return 0;
 }
-
-
-
 
 
 
