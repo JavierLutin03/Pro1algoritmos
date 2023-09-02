@@ -1,6 +1,6 @@
 # Pro1algoritmos
 // condigo en pseint  // 
-Algoritmo TriplesPitagoras
+Algoritmo TriplesPitagoras 
     Definir lado1, lado2, hipotenusa, limite como Entero
 // lado1,lado2 y hipotenusa representan los lados del triangulo con lo que que podemos inicializar las variables necesarias para el codigo y el limite = se utiliza para representar
 el limite del valor del triangulo, en este caso se usar 500 dado el requerimiento del enunciado
