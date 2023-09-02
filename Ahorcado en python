@@ -1,0 +1,79 @@
+'''
+    Juego del Ahorcado en Python
+
+    Este programa implementa un juego simple del ahorcado en el que el jugador debe adivinar
+    una palabra oculta letra por letra antes de agotar todos los intentos permitidos.
+
+    Instrucciones:
+    1. El programa selecciona una palabra al azar de la lista 'palabras' relacionada con la programación.
+    2. El número máximo de intentos permitidos está definido en 'intentosMaximos'.
+    3. El jugador ingresa letras y el programa verifica si están en la palabra secreta.
+    4. Se muestra el estado actual de la palabra con las letras adivinadas.
+    5. El juego continúa hasta que el jugador adivina la palabra o agota los intentos permitidos.
+
+    Requisitos:
+    - Python 3.x (probado en Python 3.7+)
+
+    Uso:
+    - Ejecute el programa y siga las instrucciones para adivinar la palabra secreta.
+
+'''
+
+# Importar el módulo 'random' para seleccionar palabras al azar.
+import random
+
+# Lista de palabras para el juego.
+palabras = ["PYTHON", "PROGRAMACION", "COMPUTADORA", "INTELIGENCIA", "DATOS", "APRENDIZAJE"]
+
+# Selecciona una palabra al azar de la lista.
+palabraSecreta = random.choice(palabras)
+
+# Inicializar variables.
+intentosMaximos = 6
+intentos = 0
+letrasAdivinadas = []
+
+# Función para mostrar la palabra oculta con letras adivinadas.
+def mostrarPalabraSecreta(palabra, letras):
+    palabraMostrada = ""
+    for letra in palabra:
+        if letra in letras:
+            palabraMostrada += letra
+        else:
+            palabraMostrada += "_"
+    return palabraMostrada
+
+# Comienza el juego.
+print("Bienvenido al Juego del Ahorcado!")
+print("Tienes que adivinar una palabra relacionada con la programación.")
+print("Tienes", intentosMaximos, "intentos para adivinar la palabra.")
+
+# Bucle principal del juego.
+while intentos < intentosMaximos:
+    letra = input("Ingresa una letra: ").upper()
+
+    # Verifica si la letra ya fue adivinada.
+    if letra in letrasAdivinadas:
+        print("Ya adivinaste esa letra. Intenta con otra.")
+        continue
+
+    letrasAdivinadas.append(letra)
+
+    # Verifica si la letra está en la palabra secreta.
+    if letra in palabraSecreta:
+        print("¡Correcto! La letra", letra, "está en la palabra.")
+    else:
+        print("Incorrecto. La letra", letra, "no está en la palabra.")
+        intentos += 1
+
+    palabraMostrada = mostrarPalabraSecreta(palabraSecreta, letrasAdivinadas)
+    print("Palabra actual:", palabraMostrada)
+
+    # Verifica si el jugador adivinó toda la palabra.
+    if palabraMostrada == palabraSecreta:
+        print("¡Felicidades! Has adivinado la palabra:", palabraSecreta)
+        break
+
+# Verifica si el jugador agotó todos los intentos.
+if intentos == intentosMaximos:
+    print("Lo siento, has agotado tus intentos. La palabra era:", palabraSecreta)
